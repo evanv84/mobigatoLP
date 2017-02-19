@@ -1,0 +1,35 @@
+@import "variables";
+@import "mixins";
+
+.btn {
+	display: inline-block;
+	padding: 0.5em 2em;
+	background: $blue;
+	color: $white;
+	border: solid $blue 2px;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	text-decoration: none;
+	position: relative;
+	@include trn(0.5s);
+	&:hover {
+			background: transparent;
+			@include trn(0.5s);
+	}
+	@include breakpoint($tablet) {
+			width: 40%;
+			text-align: center;
+			margin-bottom: 1em;
+			padding: 0.5em;
+	}
+	@include breakpoint($phone) {
+				width: 80%;
+				text-align: center;
+				margin-bottom: 1em;
+				padding: 0.5em;
+				margin-right: auto;
+				margin-left: auto;
+	}
+}

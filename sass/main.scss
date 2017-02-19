@@ -1,0 +1,421 @@
+@import "susy";
+@import "breakpoint";
+
+//variables
+@import "variables";
+
+//mixins
+@import "mixins";
+
+//partials
+@import "buttons";
+
+
+//fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic');
+
+//Susy settings
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  gutters: 0,
+  math: fluid,
+  output: float,
+);
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+section:after {
+	clear: both;
+}
+
+section {
+	position: relative;
+}
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	overflow-x: hidden;
+	background-color: $white;
+	color: $black;
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4 {
+	font-weight: 500;
+}
+
+a {
+	color: $gray;
+	text-decoration: none;
+	@include trn(0.5s);
+	
+	&:hover {
+		color: $blue;
+		@include trn(0.5s);
+	}
+}
+
+.container {
+	@include container(80%);
+	
+	@include breakpoint($tablet) {
+		@include container(90%);
+	}
+}
+
+header {
+	height: 100vh;
+	position: relative;
+	color: #FFF;
+	background-color: darken($blue, 30);
+	@include breakpoint($tablet) {
+		height: 170vh;
+	}
+	
+	.bcg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: url(../img/header-bg.jpg) center center no-repeat;
+		@include bgs(cover);
+		@include breakpoint($tablet) {
+			height: 170vh;
+		}
+	}
+	
+	nav {
+		position: relative;
+		width: 100%;
+		height: 80px;
+		.logo {
+			@include span(3 first);
+			padding-top: 1rem;
+			
+			@include breakpoint($tablet) {
+				@include span(6);
+			}
+			
+			img {
+				width: 200px;
+				
+				@include breakpoint($tablet) {
+					width: 150px;
+				}
+
+				@include breakpoint($phone) {
+					width: 120px;
+				}
+			}
+		}
+
+		.desc {
+			@include span(6);
+			text-align: center;
+			margin-top: 0;
+			
+			@include breakpoint($tablet) {
+				display: none;
+			}
+		}
+
+		.contacts {
+			@include span(3 last);
+			text-align: right;
+			padding-top: 1rem;
+			@include breakpoint($tablet) {
+				@include span(6);
+			}
+			
+			a {
+				color: #FFF;
+			}
+			p {
+				margin-bottom: 0.5rem;
+				margin-top: 0;
+				line-height: 1;
+			}
+		}
+	}
+
+	.text {
+		@include span(6 first);
+		padding-top: 17vh;
+		padding-right: 2rem;
+		position: relative;
+		
+		@include breakpoint($tablet) {
+			@include span(12);
+			padding-top: 10vh;	
+		}
+
+		h1 {
+			font-size: 5vh;
+			
+			@include breakpoint($tablet) {
+				font-size: 1.5rem;
+			}
+		}
+
+		h3 {
+			font-size: 3vh;
+			
+			@include breakpoint($tablet) {
+				font-size: 1rem;
+			}
+		}
+
+		.btn {
+			margin-bottom: 1rem;
+		}
+
+		.appstore-btn {
+			display: inline-block;
+			width: 149px;
+			height: 50px;
+			background: url(../img/appstore-btn.png) left center no-repeat;
+			@include bgs(contain);
+			margin-right: 1rem;
+		}
+
+		.googleplay-btn {
+			display: inline-block;
+			width: 149px;
+			height: 50px;
+			background: url(../img/googleplay-btn.png) left center no-repeat;
+			@include bgs(contain);
+			margin-right: 1rem;
+		}
+
+	}
+
+	.form {
+		@include span(6 last);
+		padding-top: 15vh;
+		position: relative;
+		
+		@include breakpoint($tablet) {
+			@include span(12);
+			padding-top: 5vh;
+		}
+		
+		.form-inner {
+			padding: 1.5rem;
+			background-color: transparentize($blue, 0.77);
+			width: 60%;
+			margin: 0 auto;
+			-webkit-border-radius: 5px;
+			        border-radius: 5px;
+			@include breakpoint($tablet) {
+				width: 100%;
+			}
+			
+			p {
+				margin-top: 0;
+				font-size: 2.5vh;
+				@include breakpoint($tablet) {
+					font-size: 1rem;
+				}
+				
+			}
+			
+			.input {
+				
+				input {
+					width: 100%;
+					background-color: transparent;
+					border: none;
+					border-bottom: 1px solid $white;
+					height: 40px;
+					margin-bottom: 1rem;
+					text-transform: uppercase;
+					padding-left: 0.5rem;
+					
+					&:focus {
+						color: #FFF;
+					}
+				}
+			}
+
+			.btn {
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+				width: 100%;
+				font-size: 1rem;
+				cursor: pointer;
+				font-family: 'Roboto', sans-serif;
+			}
+
+			.small {
+				font-size: 0.7rem;
+			}
+		}
+	}
+}
+
+#features {
+	padding: 80px 0;
+	background: url(../img/features.jpg) center center no-repeat;
+	@include bgs(cover);
+	
+	.container {
+		
+		.content {
+			@include span(6 first);
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+			
+			h2 {
+				text-transform: uppercase;
+				font-size: 1.7rem;
+				position: relative;
+				margin-top: 0;
+				margin-bottom: 2rem;
+				
+				&:before {
+					content: "";
+					background-color: $blue;
+					width: 4px;
+					height: 56px;
+					position: absolute;
+					left: -4%;
+					top: 10px;
+				}
+			}
+
+			p {
+				margin-bottom: 0;
+				margin-top: 0;
+				line-height: 1.5;
+				
+				&:before {
+					font-family: FontAwesome;
+				    content: "\f105";
+				    display: inline-block;
+				    padding-right: 10px;
+				    vertical-align: middle;
+				    color: $blue;
+				}
+			}
+
+			.extra {
+				margin-top: 1.5rem;
+				&:before {
+					display: none;
+				}
+				
+				strong {
+					font-weight: 500;
+				}
+			}
+		}
+
+		.img {
+			padding-top: 6rem;
+			@include span(6 last);
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+			
+			img {
+				display: block;
+				max-width: 100%;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+#offer {
+	padding: 80px 0 120px;
+	background: url(../img/offer-bg.jpg) center center no-repeat;
+	@include bgs(cover);
+	
+	.container {
+		
+		h4 {
+			color: #FFF;
+			text-transform: uppercase;
+			font-size: 1.7rem;
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+
+		form {
+			
+			.input {
+				@include span(4);
+				@include breakpoint($tablet) {
+					@include span(12);
+					margin-bottom: 2rem;
+				}
+				
+				input {
+					width: 90%;
+					height: 46px;
+					padding-left: 1rem;
+					text-transform: uppercase;
+					border: none;
+					
+					@include breakpoint($phone) {
+						width: 100%;
+					}
+				}
+			}
+
+			.btn {
+				font-family: 'Roboto', sans-serif;
+				
+				@include breakpoint($phone) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+footer {
+	background-color: darken($blue, 35);
+	padding: 40px 0 20px;
+	
+	.container {
+
+		a {
+			color: $lightgray;
+			@include trn(0.5s);
+			
+			&:hover {
+				color: $blue;
+				@include trn(0.5s);
+			}
+		}
+
+		p {
+			color: $lightgray;
+		}
+		
+		.left-col {
+			@include span(6 first);
+			@include breakpoint($tablet) {
+				@include span(12);
+			}
+		}
+
+		.right-col {
+			@include span(6 last);
+			text-align: right;
+			@include breakpoint($tablet) {
+				@include span(12);
+				text-align: left;
+			}
+		}
+	}
+}

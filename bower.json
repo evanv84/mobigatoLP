@@ -1,0 +1,17 @@
+{
+  "name": "mobigato.ru",
+  "description": "mobile apps for business",
+  "main": "",
+  "authors": [
+    "i.i."
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
